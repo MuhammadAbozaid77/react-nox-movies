@@ -1,5 +1,5 @@
 export const links = [
   { name: "home", url: "/" },
   { name: "movies", url: "/movies" },
-  { name: "tv", url: "/tv" },
+  { name: "tv", url: "/tvShow" },
 ];

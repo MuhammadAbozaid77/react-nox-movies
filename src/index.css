@@ -9,3 +9,9 @@ body {
 .navLinksActive li a:active {
   color: red;
 }
+
+.tabsLinksActive .active {
+  background-color: #f4cb37;
+  color: black;
+  border-radius: 5px;
+}

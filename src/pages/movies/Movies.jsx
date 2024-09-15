@@ -18,7 +18,7 @@ const moviesLinks = [
 ];
 export default function Movies() {
   return (
-    <Wrapper>
+    <Wrapper classesName={"mb-16"}>
       <LinksTab tabLinks={moviesLinks} />
       <Outlet />
     </Wrapper>
