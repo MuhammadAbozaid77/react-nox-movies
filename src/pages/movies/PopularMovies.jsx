@@ -1,34 +1,34 @@
 import { useQuery } from "@tanstack/react-query";
-import MovieCards from "../../components/cards/MovieCards";
 import GridContainer from "../../components/ui/GridContainer";
 import { getPopularMovies } from "../../services/moviesAPI";
 import SpinnerLoading from "../../components/ui/SpinnerLoading";
 import Pagination from "../../components/ui/Pagination";
-import { useSearchParams } from "react-router-dom";
+import { useState } from "react";
+import MovieCards from "./mapCards/MovieCards";
+import Wrapper from "../../components/ui/Wrapper";
 
 export default function PopularMovies() {
-  // const [searchParams, setSearchParams] = useSearchParams();
-  // console.log("searchParams", searchParams);
-
+  const [currentPage, setCurrentPage] = useState(1);
   // ------------- Fetching Data --------------------
   const {
     isLoading,
     error,
     data: popularMoviesList,
   } = useQuery({
-    queryKey: ["popularMoviesList"],
-    queryFn: getPopularMovies,
+    queryKey: ["popularMoviesList", currentPage],
+    queryFn: () => getPopularMovies(currentPage),
+    enabled: !!currentPage,
   });
 
   // ------------- Return --------------------
   if (isLoading) return <SpinnerLoading />;
   return (
-    <>
+    <Wrapper classesName={"py-16"}>
       <GridContainer>
         {popularMoviesList?.length > 0 &&
           popularMoviesList?.map((el) => <MovieCards item={el} key={el?.id} />)}
       </GridContainer>
-      <Pagination />
-    </>
+      <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} />
+    </Wrapper>
   );
 }

@@ -1,12 +1,9 @@
 import { useState } from "react";
 //
-export default function Pagination() {
+export default function Pagination({ currentPage, setCurrentPage }) {
   // ------------------ Url Search Params ------------------
-  const [currentPage, setCurrentPage] = useState(1);
-  console.log("currentPage", currentPage);
 
   const pageCount = 20;
-
   const nextPage = () => {
     setCurrentPage(currentPage === pageCount ? currentPage : currentPage + 1);
   };
@@ -15,7 +12,7 @@ export default function Pagination() {
   };
 
   const handelClick = (n) => {
-    console.log("n", n);
+    setCurrentPage(n);
   };
 
   // ------------------------ Return -------------------------

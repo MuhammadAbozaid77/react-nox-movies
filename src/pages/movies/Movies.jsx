@@ -18,9 +18,16 @@ const moviesLinks = [
 ];
 export default function Movies() {
   return (
-    <Wrapper classesName={"mb-16"}>
-      <LinksTab tabLinks={moviesLinks} />
+    <div className="min-h-[calc(100vh-80px)]">
       <Outlet />
-    </Wrapper>
+    </div>
   );
 }
+
+// <div className="h-[calc(100vh-80px)]">
+// <Wrapper classesName={"mb-16"}>
+{
+  /* <LinksTab tabLinks={moviesLinks} /> */
+}
+// </Wrapper>
+// </div>
