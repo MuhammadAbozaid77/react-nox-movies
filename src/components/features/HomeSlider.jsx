@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import movie from "./../../assets/movie.jpg";
 import { useQuery } from "@tanstack/react-query";
 import { getNowPlaingMovies } from "../../services/moviesAPI";
+import SpinnerLoading from "../ui/SpinnerLoading";
 
 export default function HomeSlider() {
   const {
@@ -39,6 +40,8 @@ export default function HomeSlider() {
       items: 1,
     },
   };
+
+  if (isLoading) return <SpinnerLoading />;
   return (
     <>
       <Carousel infinite={true} autoPlay={true} responsive={responsive}>

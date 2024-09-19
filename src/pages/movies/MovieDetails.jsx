@@ -32,12 +32,24 @@ export default function MovieDetails() {
     companies: movieDetails?.production_companies,
     tagline: movieDetails?.tagline,
   };
+const iconsData = {
+  language : movieDetails?.spoken_languages,
+  rating : movieDetails?.vote_average,
+  vote : movieDetails?.vote_count,
+  status : movieDetails?.status,
+  release : movieDetails?.release_date,
+  time : movieDetails?.runtime,
+  link : movieDetails?.homepage,
+  
+
+}
+  console.log("movieDetails", movieDetails);
 
   if (isLoading) return <SpinnerLoading />;
 
   return (
     <div
-      className="relative py-[10px] h-[calc(100vh-80px)]"
+      className="relative py-[10px] min-h-[calc(100vh-80px)]"
       style={{
         backgroundImage: `url(${imagePath})`,
         backgroundSize: "cover",
@@ -52,7 +64,7 @@ export default function MovieDetails() {
         <div className="relative text-white gap-2 grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1">
           <MovieDetailsLeft pic={movieDetails?.poster_path} />
           <MovieDetailsCenter centerDetails={centerDetails} />
-          <MovieDetailsRight />
+          <MovieDetailsRight  iconsData={iconsData}/>
         </div>
       </Wrapper>
     </div>

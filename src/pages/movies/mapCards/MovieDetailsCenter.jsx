@@ -2,14 +2,14 @@ export default function MovieDetailsCenter({ centerDetails }) {
   const { title, overview, genres, companies, tagline } = centerDetails;
   return (
     <>
-      <div className="md:col-span-2 col-span-1 flex flex-col gap-4">
-        <div className=" bg-gray-900 rounded-b-[10px] p-3 border border-gray-800">
-          <h2 className="text-[20px] text-yellow-500 font-semibold">{title}</h2>
-          <h4 className="text-[12px] text-gray-300 capitalize">{tagline}</h4>
+      <div className=" md:col-span-2 col-span-1 flex flex-col gap-4 px-5">
+        <div className=" bg-[#303030] rounded-b-[10px] p-3 border border-gray-800">
+          <h2 className="text-[25px] text-yellow-500 font-semibold">{title}</h2>
+          <h4 className="text-[14px] text-gray-300 capitalize">{tagline}</h4>
         </div>
         <div>
           <span className="text-yellow-500 font-bold"> Overview </span>
-          <p className="text-gray-300 text-[14px] leading-4"> {overview} </p>
+          <p className="text-gray-300 text-[14px] leading-5 "> {overview} </p>
         </div>
         <div>
           <span className="text-yellow-500 font-bold capitalize"> Genres </span>
@@ -17,7 +17,7 @@ export default function MovieDetailsCenter({ centerDetails }) {
             {genres?.map((el) => (
               <span
                 key={el?.id}
-                className="p-1 bg-gray-900 border border-gray-800 text-gray-200 min-w-[80px] rounded-md text-center text-[14px]"
+                className="p-1 bg-[#303030]  text-gray-200 min-w-[80px] rounded-md text-center text-[14px]"
               >
                 {el?.name}
               </span>

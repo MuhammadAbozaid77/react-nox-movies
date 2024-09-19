@@ -6,7 +6,7 @@ export default function AppLayout() {
   return (
     <div className="flex justify-between flex-col">
       <Header />
-      <main className="bg-[#060d17] min-h-[100vh-80px]">
+      <main className="bg-[#060d17] min-h-[calc(100vh-80px)]">
         <Outlet />
       </main>
       <Footer />
