@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import { getTrendingPeople } from "../../services/trendingMovies";
 import SpinnerLoading from "../../components/ui/SpinnerLoading";
-import { FaChevronRight } from "react-icons/fa6";
 import GridContainer from "../../components/ui/GridContainer";
-import MovieCards from "../../components/cards/MovieCards";
 import StarCard from "../../components/cards/StarCard";
+import { CiSquareMore } from "react-icons/ci";
+import { FaUsers } from "react-icons/fa";
 
 export default function TrendingPeople() {
   const { isLoading, data, error } = useQuery({
@@ -12,22 +12,27 @@ export default function TrendingPeople() {
     queryFn: getTrendingPeople,
   });
 
-  console.log(data);
-
   if (isLoading) return <SpinnerLoading />;
 
   return (
     <div className="mt-[80px]">
-      <div className="mb-4">
+      <div className="mb-4 flex justify-between items-center">
         <h1 className="text-[22px] text-gray-300 flex justify-start items-center">
-          <span className=""> Trending People </span>
           <span className="flex justify-center items-center mx-2">
-            <FaChevronRight className="text-bold" />
+            <FaUsers className=" text-yellow-500" size={30} />
           </span>
+          <span className=""> Trending Stars </span>
         </h1>
+        <div className="flex justify-center items-center cursor-pointer">
+          <span className="mx-1 text-gray-400 font-semibold"> More </span>
+          <span>
+            <CiSquareMore size={25} className="text-yellow-500" />
+          </span>
+        </div>
       </div>
+
       <GridContainer>
-        {data?.map((el, index) => (
+        {data?.slice(0, 5).map((el, index) => (
           <StarCard key={index} item={el} />
         ))}
       </GridContainer>

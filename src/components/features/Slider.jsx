@@ -6,7 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getNowPlaingMovies } from "../../services/moviesAPI";
 import SpinnerLoading from "../ui/SpinnerLoading";
 
-export default function HomeSlider({ data, isLoading }) {
+export default function Slider({ data, isLoading }) {
   // const {
   //   isLoading,
   //   data: nowPlaingMovies,
