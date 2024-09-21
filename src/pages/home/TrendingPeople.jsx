@@ -15,7 +15,7 @@ export default function TrendingPeople() {
   if (isLoading) return <SpinnerLoading />;
 
   return (
-    <div className="mt-[80px]">
+    <div className="mt-[40px]">
       <div className="mb-4 flex justify-between items-center">
         <h1 className="text-[22px] text-gray-300 flex justify-start items-center">
           <span className="flex justify-center items-center mx-2">
