@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 
 export default function MovieCards({ item }) {
+  console.log(item);
+  
   return (
     <>
       <Link to={`/movies/movieDetails/${item?.id}`} className="cursor-pointer">

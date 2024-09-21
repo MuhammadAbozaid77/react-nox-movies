@@ -4,8 +4,8 @@ import { getPopularMovies } from "../../services/moviesAPI";
 import SpinnerLoading from "../../components/ui/SpinnerLoading";
 import Pagination from "../../components/ui/Pagination";
 import { useState } from "react";
-import MovieCards from "./mapCards/MovieCards";
 import Wrapper from "../../components/ui/Wrapper";
+import MovieCards from "../../components/cards/MovieCards";
 
 export default function PopularMovies() {
   const [currentPage, setCurrentPage] = useState(1);

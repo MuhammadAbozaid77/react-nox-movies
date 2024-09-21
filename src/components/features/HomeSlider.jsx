@@ -6,17 +6,15 @@ import { useQuery } from "@tanstack/react-query";
 import { getNowPlaingMovies } from "../../services/moviesAPI";
 import SpinnerLoading from "../ui/SpinnerLoading";
 
-export default function HomeSlider() {
-  const {
-    isLoading,
-    data: nowPlaingMovies,
-    error,
-  } = useQuery({
-    queryKey: ["nowPlaingMovies"],
-    queryFn: getNowPlaingMovies,
-  });
-  console.log(nowPlaingMovies);
-
+export default function HomeSlider({ data, isLoading }) {
+  // const {
+  //   isLoading,
+  //   data: nowPlaingMovies,
+  //   error,
+  // } = useQuery({
+  //   queryKey: ["nowPlaingMovies"],
+  //   queryFn: getNowPlaingMovies,
+  // });
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -41,12 +39,12 @@ export default function HomeSlider() {
     },
   };
 
-  if (isLoading) return <SpinnerLoading />;
+  // if (isLoading) return <SpinnerLoading />;
   return (
     <>
       <Carousel infinite={true} autoPlay={true} responsive={responsive}>
-        {nowPlaingMovies?.length > 0 &&
-          nowPlaingMovies?.map((el) => (
+        {data?.length > 0 &&
+          data?.map((el) => (
             <div className="rounded-[15px] m-1 overflow-hidden" key={el?.id}>
               <div className="flex justify-center items-center hover:scale-105 duration-150 transition-all">
                 <img
