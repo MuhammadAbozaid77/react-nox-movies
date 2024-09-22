@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 
 export default function TvCards({ item }) {
+  console.log(item);
+
   return (
     <>
-      <Link to={`/movies/movieDetails/${item?.id}`} className="cursor-pointer">
+      <Link to={`/tvDetails/${item?.id}`} className="cursor-pointer">
         <div className="col-span-1 text-white rounded-md overflow-hidden  relative">
           <img
             className="hover:scale-110 duration-300 transition-all"

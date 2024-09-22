@@ -3,12 +3,9 @@ import { FaGrinStars, FaStar } from "react-icons/fa";
 import { BiLogoInternetExplorer, BiSolidTimeFive } from "react-icons/bi";
 import { BsFillCalendarDateFill } from "react-icons/bs";
 import { IoIosPeople } from "react-icons/io";
-import { SiFacebook, SiInstagram } from "react-icons/si";
-import { RiUserFollowFill } from "react-icons/ri";
-import { Link } from "react-router-dom";
 
 export default function MovieDetailsRight({ iconsData }) {
-  const { language, rating, vote, status, release, time, link } = iconsData;
+  const { language, rating, vote, status, release, time } = iconsData;
 
   const iconsRight = [
     {
@@ -37,11 +34,6 @@ export default function MovieDetailsRight({ iconsData }) {
       data: vote,
     },
     {
-      icon: <BiLogoInternetExplorer />,
-      name: "website",
-      data: "",
-    },
-    {
       icon: <FaGrinStars />,
       name: "status",
       data: status,
@@ -50,19 +42,19 @@ export default function MovieDetailsRight({ iconsData }) {
 
   return (
     <>
-      <div className="p-2 lg:col-span-1 md:col-span-3 col-span-1 rounded-xl flex flex-col justify-between gap-1">
+      <div className="grid grid-cols-3 rounded-xl  gap-1">
         {iconsRight?.map((el, index) => (
           <div
-            className="flex justify-start items-center py-2 bg-[#303030] border border-gray-500 rounded-md"
+            className="flex justify-start items-center py-2  rounded border border-gray-700"
             key={index}
           >
-            <span className=" text-yellow-500  w-[30px] h-[30px] text-[20px] border-gray-500  flex justify-center items-center">
+            <span className=" text-gray-300  w-[40px] h-[30px] text-[25px] border-gray-500  flex justify-center items-center">
               {el?.icon}
             </span>
-            <span className="px-1  cursor-pointer text-yellow-500  capitalize">
+            <span className="px-1  cursor-pointer text-gray-300 font-semibold  capitalize">
               {el?.name} :
             </span>
-            <span className="px-1  cursor-pointer text-gray-300 font-semibold  capitalize">
+            <span className="px-1  cursor-pointer text-yellow-500  font-semibold  capitalize">
               {el?.data}
             </span>
           </div>

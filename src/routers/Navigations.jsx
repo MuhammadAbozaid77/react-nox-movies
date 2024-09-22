@@ -7,6 +7,9 @@ import Movies from "../pages/movies/Movies";
 import MovieDetails from "../pages/movies/MovieDetails";
 // ------------------------------TV---------------------------
 import TvShow from "../pages/tvShow/TvShow";
+import TvDetails from "../pages/tvShow/TvDetails";
+import MovieVideos from "../pages/movies/MovieVideos";
+import MovieDetailsLayout from "../pages/movies/MovieDetailsLayout";
 // import TvDetails from "../pages/tvShow/TvDetails";
 
 export default function Navigations() {
@@ -18,10 +21,22 @@ export default function Navigations() {
         <Route path="/home" element={<Home />} />
 
         <Route path="movies" element={<Movies />} />
-        <Route path="movieDetails/:movieId" element={<MovieDetails />} />
+        <Route path="" element={<MovieDetailsLayout />}>
+          <Route
+            index
+            element={<Navigate replace to="/movieDetails/:movieId" />}
+          />
+
+          <Route
+            index
+            path="movieDetails/:movieId"
+            element={<MovieDetails />}
+          />
+          <Route path="movieVideos/:movieId" element={<MovieVideos />} />
+        </Route>
 
         <Route path="tvShow" element={<TvShow />} />
-        {/* <Route path="tvDetails/:tvId" element={<TvDetails />} /> */}
+        <Route path="tvDetails/:tvId" element={<TvDetails />} />
       </Route>
       <Route />
     </Routes>

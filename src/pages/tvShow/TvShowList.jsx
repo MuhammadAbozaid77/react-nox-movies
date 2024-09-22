@@ -19,6 +19,7 @@ export default function TvShowList() {
     queryFn: () => getPopularTvShow(currentPage),
     enabled: !!currentPage,
   });
+  console.log(tvShowList);
 
   // ------------- Return --------------------
   if (isLoading) return <SpinnerLoading />;

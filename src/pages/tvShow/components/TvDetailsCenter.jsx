@@ -1,10 +1,10 @@
-export default function MovieDetailsCenter({ centerDetails }) {
+export default function TvDetailsCenter({ centerDetails }) {
   const { title, overview, genres, companies, tagline } = centerDetails;
   return (
     <>
       <div className=" md:col-span-2 col-span-1 flex flex-col gap-4 px-5">
         <div className=" bg-[#303030] rounded-b-[10px] p-3 border border-gray-800">
-          <h2 className="text-[25px] text-yellow-500 font-semibold">{title}</h2>
+          <h2 className="text-[25px] text-gray-200 font-semibold">{title}</h2>
           <h4 className="text-[14px] text-gray-300 capitalize">{tagline}</h4>
         </div>
         <div>

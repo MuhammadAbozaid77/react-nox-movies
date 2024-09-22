@@ -5,6 +5,7 @@ import GridContainer from "../../components/ui/GridContainer";
 import { BiTv } from "react-icons/bi";
 import TvCards from "../../components/cards/TvCards";
 import { CiSquareMore } from "react-icons/ci";
+import { Link } from "react-router-dom";
 
 export default function TrendingTvShow() {
   const { isLoading, data, error } = useQuery({
@@ -23,12 +24,15 @@ export default function TrendingTvShow() {
           </span>
           <span className=""> Trending TV </span>
         </h1>
-        <div className="flex justify-center items-center cursor-pointer">
+        <Link
+          to={"/tvShow"}
+          className="flex justify-center items-center cursor-pointer"
+        >
           <span className="mx-1 text-gray-400 font-semibold"> More </span>
           <span>
             <CiSquareMore size={25} className="text-yellow-500" />
           </span>
-        </div>
+        </Link>
       </div>
 
       <GridContainer>

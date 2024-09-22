@@ -21,3 +21,19 @@ export async function getMovieDetails(movieId) {
     throw new Error("Can't Get Movie Details ", error);
   }
 }
+
+export async function getMoviesVideos(movieId) {
+  const url = `https://api.themoviedb.org/3/movie/${movieId}/videos`;
+  try {
+    const res = await fetch(url, options);
+    const data = await res.json();
+    const videos = data?.results?.filter(
+      (video) => video.type === "Clip" || video.type === "Trailers"
+    );
+    console.log("dataaa", videos);
+
+    return videos;
+  } catch (error) {
+    throw new Error("Can't Get Movie Details ", error);
+  }
+}

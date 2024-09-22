@@ -1,47 +1,46 @@
 import { useParams } from "react-router-dom";
-
 import { getTvDetails } from "../../services/tvShowAPI";
 import { useQuery } from "@tanstack/react-query";
-import MovieDetailsLeft from "./mapCards/MovieDetailsLeft";
-import MovieDetailsCenter from "./mapCards/MovieDetailsCenter";
-import MovieDetailsRight from "./mapCards/MovieDetailsRight";
 import Wrapper from "../../components/ui/Wrapper";
 import SpinnerLoading from "../../components/ui/SpinnerLoading";
+import TvDetailsCenter from "./components/TvDetailsCenter";
+import TvDetailsLeft from "./components/TvDetailsLeft";
+import TvDetailsRight from "./components/TvDetailsRight";
 
-// getMovieDetails
+// gettvShowDetails
 export default function TvDetails() {
   const params = useParams();
-  const movieId = params?.movieId;
+  const tvId = params?.tvId;
 
   // ------------- Fetching Data --------------------
   const {
     isLoading,
     error,
-    data: movieDetails,
+    data: tvShowDetails,
   } = useQuery({
-    queryKey: ["popularMoviesList", movieId],
-    queryFn: () => getTvDetails(movieId),
-    enabled: !!movieId,
+    queryKey: ["tvShowDetails", tvId],
+    queryFn: () => getTvDetails(tvId),
+    enabled: !!tvId,
   });
 
-  const imagePath = `https://image.tmdb.org/t/p/original${movieDetails?.poster_path}`;
+  const imagePath = `https://image.tmdb.org/t/p/original${tvShowDetails?.poster_path}`;
   const centerDetails = {
-    title: movieDetails?.original_title,
-    overview: movieDetails?.overview,
-    genres: movieDetails?.genres,
-    companies: movieDetails?.production_companies,
-    tagline: movieDetails?.tagline,
+    title: tvShowDetails?.original_name,
+    overview: tvShowDetails?.overview,
+    genres: tvShowDetails?.genres,
+    companies: tvShowDetails?.production_companies,
+    tagline: tvShowDetails?.tagline,
   };
   const iconsData = {
-    language: movieDetails?.spoken_languages,
-    rating: movieDetails?.vote_average,
-    vote: movieDetails?.vote_count,
-    status: movieDetails?.status,
-    release: movieDetails?.release_date,
-    time: movieDetails?.runtime,
-    link: movieDetails?.homepage,
+    language: tvShowDetails?.spoken_languages,
+    rating: tvShowDetails?.vote_average,
+    vote: tvShowDetails?.vote_count,
+    status: tvShowDetails?.status,
+    release: tvShowDetails?.release_date,
+    time: tvShowDetails?.runtime,
+    link: tvShowDetails?.homepage,
   };
-  console.log("movieDetails", movieDetails);
+  console.log("tvShowDetails", tvShowDetails);
 
   if (isLoading) return <SpinnerLoading />;
 
@@ -60,9 +59,9 @@ export default function TvDetails() {
       {/* Content above the overlay */}
       <Wrapper>
         <div className="relative text-white gap-2 grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1">
-          <MovieDetailsLeft pic={movieDetails?.poster_path} />
-          <MovieDetailsCenter centerDetails={centerDetails} />
-          <MovieDetailsRight iconsData={iconsData} />
+          <TvDetailsLeft pic={tvShowDetails?.poster_path} />
+          <TvDetailsCenter centerDetails={centerDetails} />
+          <TvDetailsRight iconsData={iconsData} />
         </div>
       </Wrapper>
     </div>
