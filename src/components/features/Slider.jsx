@@ -1,9 +1,6 @@
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Link } from "react-router-dom";
-import movie from "./../../assets/movie.jpg";
-import { useQuery } from "@tanstack/react-query";
-import { getNowPlaingMovies } from "../../services/moviesAPI";
 import SpinnerLoading from "../ui/SpinnerLoading";
 
 export default function Slider({ data, isLoading }) {
@@ -19,11 +16,11 @@ export default function Slider({ data, isLoading }) {
     superLargeDesktop: {
       // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 3000 },
-      items: 6,
+      items: 7,
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 5,
+      items: 6,
     },
     tablet: {
       breakpoint: { max: 1024, min: 769 },

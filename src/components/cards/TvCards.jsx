@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
 
 export default function TvCards({ item }) {
-  console.log(item);
-
   return (
     <>
       <Link to={`/movies/movieDetails/${item?.id}`} className="cursor-pointer">
@@ -14,7 +12,7 @@ export default function TvCards({ item }) {
           />
           {/* <div className="hover:bg-black/40 absolute inset-0"></div> */}
         </div>
-        <h1 className="text-white mt-1 ">{item?.original_title}</h1>
+        <h1 className="text-gray-200 mt-1 ">{item?.original_name}</h1>
         <h1 className="text-gray-500 "> {item?.vote_average} </h1>
       </Link>
     </>

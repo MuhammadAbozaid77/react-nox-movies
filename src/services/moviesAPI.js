@@ -21,15 +21,3 @@ export async function getMovieDetails(movieId) {
     throw new Error("Can't Get Movie Details ", error);
   }
 }
-
-export async function getNowPlaingMovies() {
-  const nowPlaingMovies =
-    "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1";
-  try {
-    const res = await fetch(nowPlaingMovies, options);
-    const data = await res?.json();
-    return data?.results;
-  } catch (error) {
-    throw new Error("Can't Get Popular Movies");
-  }
-}

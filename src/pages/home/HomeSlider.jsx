@@ -1,12 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
-import { getTrendingMovies } from "../../services/trendingMovies";
+import { getAllTrending } from "../../services/trendingMovies";
 import SpinnerLoading from "../../components/ui/SpinnerLoading";
 import Slider from "../../components/features/Slider";
 
 export default function HomeSlider() {
   const { isLoading, data, error } = useQuery({
-    queryKey: ["trendingMoviesList"],
-    queryFn: getTrendingMovies,
+    queryKey: ["allTrending"],
+    queryFn: getAllTrending,
   });
 
   if (isLoading) return <SpinnerLoading />;

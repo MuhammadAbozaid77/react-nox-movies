@@ -5,6 +5,7 @@ import GridContainer from "../../components/ui/GridContainer";
 import { CiSquareMore } from "react-icons/ci";
 import { RiMovie2Line } from "react-icons/ri";
 import MovieCards from "../../components/cards/MovieCards";
+import { Link } from "react-router-dom";
 
 export default function TrendingMovies() {
   const { isLoading, data, error } = useQuery({
@@ -23,12 +24,15 @@ export default function TrendingMovies() {
           </span>
           <span className=""> Trending Movies </span>
         </h1>
-        <div className="flex justify-center items-center cursor-pointer">
+        <Link
+          to={"/movies"}
+          className="flex justify-center items-center cursor-pointer"
+        >
           <span className="mx-1 text-gray-400 font-semibold"> More </span>
           <span>
             <CiSquareMore size={25} className="text-yellow-500" />
           </span>
-        </div>
+        </Link>
       </div>
 
       <GridContainer>
