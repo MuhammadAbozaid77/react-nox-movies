@@ -27,10 +27,10 @@ export async function getMoviesVideos(movieId) {
   try {
     const res = await fetch(url, options);
     const data = await res.json();
+
     const videos = data?.results?.filter(
       (video) => video.type === "Clip" || video.type === "Trailers"
     );
-    console.log("dataaa", videos);
 
     return videos;
   } catch (error) {
