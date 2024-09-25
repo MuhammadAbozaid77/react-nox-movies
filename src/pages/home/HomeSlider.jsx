@@ -12,7 +12,7 @@ export default function HomeSlider() {
   if (isLoading) return <SpinnerLoading />;
 
   return (
-    <div className="mt-[40px]">
+    <div className="my-[40px]">
       <Slider data={data} isLoading={isLoading} error={error} />
     </div>
   );

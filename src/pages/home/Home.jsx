@@ -7,8 +7,10 @@ import HomeSlider from "./HomeSlider";
 export default function Home() {
   return (
     <>
-      <HomeSlider />
       <Wrapper classesName={"text-gray-200 py-8"}>
+        <div className="mb-[100px]">
+          <HomeSlider />
+        </div>
         <TrendingMovies />
         <TrendingTvShow />
         <TrendingPeople />
