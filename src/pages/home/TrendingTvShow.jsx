@@ -6,6 +6,7 @@ import { BiTv } from "react-icons/bi";
 import TvCards from "../../components/cards/TvCards";
 import { CiSquareMore } from "react-icons/ci";
 import { Link } from "react-router-dom";
+import SectionTitle from "../../components/cards/SectionTitle";
 
 export default function TrendingTvShow() {
   const { isLoading, data, error } = useQuery({
@@ -16,27 +17,15 @@ export default function TrendingTvShow() {
   if (isLoading) return <SpinnerLoading />;
 
   return (
-    <div className="mt-[40px]">
-      <div className="mb-4 flex justify-between items-center">
-        <h1 className="text-[22px] text-gray-300 flex justify-start items-center">
-          <span className="flex justify-center items-center mx-2">
-            <BiTv className=" text-yellow-500" size={30} />
-          </span>
-          <span className=""> Trending TV </span>
-        </h1>
-        <Link
-          to={"/tvShow"}
-          className="flex justify-center items-center cursor-pointer"
-        >
-          <span className="mx-1 text-gray-400 font-semibold"> More </span>
-          <span>
-            <CiSquareMore size={25} className="text-yellow-500" />
-          </span>
-        </Link>
-      </div>
+    <div className="my-[100px]">
+      <SectionTitle
+        title={"Trending TV"}
+        path={"tvShow"}
+        icon={<BiTv className=" text-yellow-500" size={30} />}
+      />
 
       <GridContainer>
-        {data?.slice(0, 5).map((el, index) => (
+        {data?.slice(0, 6).map((el, index) => (
           <TvCards key={index} item={el} />
         ))}
       </GridContainer>

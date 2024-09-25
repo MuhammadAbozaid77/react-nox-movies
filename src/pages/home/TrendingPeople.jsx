@@ -5,6 +5,7 @@ import GridContainer from "../../components/ui/GridContainer";
 import StarCard from "../../components/cards/StarCard";
 import { CiSquareMore } from "react-icons/ci";
 import { FaUsers } from "react-icons/fa";
+import SectionTitle from "../../components/cards/SectionTitle";
 
 export default function TrendingPeople() {
   const { isLoading, data, error } = useQuery({
@@ -15,24 +16,15 @@ export default function TrendingPeople() {
   if (isLoading) return <SpinnerLoading />;
 
   return (
-    <div className="mt-[40px]">
-      <div className="mb-4 flex justify-between items-center">
-        <h1 className="text-[22px] text-gray-300 flex justify-start items-center">
-          <span className="flex justify-center items-center mx-2">
-            <FaUsers className=" text-yellow-500" size={30} />
-          </span>
-          <span className=""> Trending Stars </span>
-        </h1>
-        <div className="flex justify-center items-center cursor-pointer">
-          <span className="mx-1 text-gray-400 font-semibold"> More </span>
-          <span>
-            <CiSquareMore size={25} className="text-yellow-500" />
-          </span>
-        </div>
-      </div>
+    <div className="my-[100px]">
+      <SectionTitle
+        title={"Trending Stars"}
+        path={"stars"}
+        icon={<FaUsers className=" text-yellow-500" size={30} />}
+      />
 
       <GridContainer>
-        {data?.slice(0, 5).map((el, index) => (
+        {data?.slice(0, 6).map((el, index) => (
           <StarCard key={index} item={el} />
         ))}
       </GridContainer>
