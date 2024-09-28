@@ -4,7 +4,7 @@ import HeaderSmallScreen from "./HeaderSmallScreen";
 
 export default function Header() {
   return (
-    <Wrapper classesName="h-20 border-b  border-gray-600 bg-[#060d17]">
+    <Wrapper classesName="h-20 border-b  border-gray-700 bg-gray-900">
       {/* Start In Screen Mode */}
       <HeaderBigScreen />
       {/* End In Responsive Mode */}
