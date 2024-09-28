@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
 
 export default function TvCards({ item }) {
-  console.log(item);
-
   return (
     <>
       <Link to={`/tvDetails/${item?.id}`} className="cursor-pointer">
