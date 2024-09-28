@@ -2,8 +2,6 @@ import { Link } from "react-router-dom";
 import { FaStar, FaGooglePlay } from "react-icons/fa";
 
 export default function MovieCards({ item }) {
-  console.log(item);
-
   return (
     <Link to={`/movieDetails/${item?.id}`} className="cursor-pointer">
       <div className="col-span-1 text-white rounded-lg overflow-hidden relative">
