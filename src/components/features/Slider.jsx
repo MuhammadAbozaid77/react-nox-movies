@@ -1,17 +1,7 @@
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { Link } from "react-router-dom";
-import SpinnerLoading from "../ui/SpinnerLoading";
 
 export default function Slider({ data, isLoading }) {
-  // const {
-  //   isLoading,
-  //   data: nowPlaingMovies,
-  //   error,
-  // } = useQuery({
-  //   queryKey: ["nowPlaingMovies"],
-  //   queryFn: getNowPlaingMovies,
-  // });
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -35,21 +25,27 @@ export default function Slider({ data, isLoading }) {
       items: 1,
     },
   };
-
+  // media_type
   // if (isLoading) return <SpinnerLoading />;
   return (
     <>
       <Carousel infinite={true} autoPlay={true} responsive={responsive}>
         {data?.length > 0 &&
           data?.map((el) => (
-            <div className="rounded-[15px] m-1 overflow-hidden" key={el?.id}>
-              <div className="flex justify-center items-center hover:scale-105 duration-150 transition-all">
+            <div className="rounded-[15px] m-1 overflow-hidden " key={el?.id}>
+              <div className="relative flex justify-center items-center hover:scale-105 duration-150 transition-all">
                 <img
                   className="object-cover "
                   src={`https://image.tmdb.org/t/p/original${el?.poster_path}`}
                   alt=""
                 />
+                <div
+                  className={`-rotate-90 absolute top-[10px] left-[5px] rounded py-2 text-gray-200 w-[100px] text-center font-semibold px-3 capitalize ${el?.media_type === "tv" ? "bg-yellow-600" : "bg-red-600"}`}
+                >
+                  {el?.media_type}
+                </div>
               </div>
+              <div></div>
             </div>
           ))}
       </Carousel>

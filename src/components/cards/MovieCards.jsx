@@ -9,13 +9,19 @@ export default function MovieCards({ item }) {
           <div className="bg-black h-[100%] w-[100%] opacity-0 group-hover:opacity-70 duration-150 transition-all"></div>
 
           {/* First div appearing on hover */}
-          <div className="py-1 px-2 capitalize text-[12px] font-bold bg-yellow-500 text-black text-center absolute top-[20px] -left-[120px] group-hover:left-2 rounded-full transition-all duration-300">
-            muhammad
-          </div>
+          {item?.adult ? (
+            <div className="py-1 px-2 capitalize text-[12px] font-bold bg-yellow-600 text-black text-center absolute top-[20px] -left-[120px] group-hover:left-2 rounded-full transition-all duration-300">
+              +18
+            </div>
+          ) : (
+            <div className="py-1 px-2 capitalize text-[12px] font-bold bg-yellow-600 text-black text-center absolute top-[20px] -left-[120px] group-hover:left-2 rounded-full transition-all duration-300">
+              All People
+            </div>
+          )}
 
           {/* Second div appearing on hover */}
           <div className="py-1 px-2 capitalize text-[12px] font-bold bg-black/70 text-gray-200 text-center absolute top-[50px] -left-[120px] group-hover:left-2 rounded-full transition-all duration-500">
-            muhammad
+            {item?.release_date}
           </div>
 
           {/* Third div with icon and rating */}
