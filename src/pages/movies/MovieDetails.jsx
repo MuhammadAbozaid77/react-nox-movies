@@ -10,6 +10,8 @@ export default function MovieDetails() {
   const queryClient = useQueryClient();
   const movieDetails = queryClient.getQueryData(["movieDetails", movieId]);
 
+  console.log("movieDetails", movieDetails);
+
   const centerDetails = {
     title: movieDetails?.original_title,
     overview: movieDetails?.overview,
@@ -30,7 +32,7 @@ export default function MovieDetails() {
 
   return (
     <>
-      <div className="relative text-white gap-2 grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1 mt-4">
+      <div className="relative text-white gap-8 grid lg:grid-cols-6 md:grid-cols-3 grid-cols-1 mt-4">
         <MovieDetailsLeft pic={movieDetails?.poster_path} />
         <MovieDetailsCenter
           centerDetails={centerDetails}
