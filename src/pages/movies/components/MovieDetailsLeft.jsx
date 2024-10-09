@@ -1,7 +1,7 @@
 export default function MovieDetailsLeft({ pic }) {
   return (
     <>
-      <div className=" col-span-2 overflow-hidden rounded-xl relative">
+      <div className="lg:col-span-2 md:col-span-3 col-span-1  overflow-hidden rounded-xl w-[100%]">
         <img
           src={`https://image.tmdb.org/t/p/original${pic}`}
           alt={`https://image.tmdb.org/t/p/original${pic}`}
