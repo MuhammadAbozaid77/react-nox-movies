@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useNavigate, useParams } from "react-router-dom";
 import { getMoviesVideos } from "../../services/moviesAPI";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SpinnerLoading from "../../components/ui/SpinnerLoading";
 import { MdOutlineSlowMotionVideo, MdDownloadForOffline } from "react-icons/md";
 import { FaCircleChevronLeft } from "react-icons/fa6";
@@ -23,7 +23,7 @@ export default function MovieVideos() {
     enabled: !!movieId,
   });
 
-  const [videoShow, setVideoShow] = useState(tvShowVideo?.[0]?.key);
+  const [videoShow, setVideoShow] = useState(null);
   const handelChangeVideo = (arg) => {
     setVideoLoading(true);
     setTimeout(() => {
@@ -31,6 +31,10 @@ export default function MovieVideos() {
     }, 2000);
     setVideoLoading(false);
   };
+
+  useEffect(() => {
+    setVideoShow(tvShowVideo?.[0]?.key);
+  }, [tvShowVideo]);
 
   if (isLoading) return <SpinnerLoading />;
 

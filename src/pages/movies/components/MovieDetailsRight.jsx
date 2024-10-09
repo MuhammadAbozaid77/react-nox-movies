@@ -6,6 +6,7 @@ import { IoIosPeople } from "react-icons/io";
 
 export default function MovieDetailsRight({ iconsData }) {
   const { language, rating, vote, status, release, time } = iconsData;
+  console.log("iconsData", iconsData);
 
   const hours = Math.floor(time / 60); // Get the whole hours
   const remainingtime = time % 60;
@@ -14,7 +15,12 @@ export default function MovieDetailsRight({ iconsData }) {
     {
       icon: <FaLanguage />,
       name: "language",
-      data: language?.[0]?.name,
+      data: language?.map((el) => (
+        <span className="border border-gray-600 rounded-md p-1">
+          {" "}
+          {el?.english_name}
+        </span>
+      )),
     },
     {
       icon: <BsFillCalendarDateFill />,
@@ -45,16 +51,16 @@ export default function MovieDetailsRight({ iconsData }) {
 
   return (
     <>
-      <div className="grid grid-cols-2 rounded-xl gap-1">
+      <div className="grid grid-cols-1 rounded-xl gap-1 border px-2 py-5 border-gray-700">
         {iconsRight?.map((el, index) => (
           <div className="flex justify-start items-center" key={index}>
-            <span className="px-1 text-[20px] cursor-pointer text-yellow-500 font-semibold  capitalize">
+            <span className="px-1 text-[20px] cursor-pointer text-yellow-600 font-semibold  capitalize">
               {el?.icon}
             </span>
-            <span className="px-1  cursor-pointer text-yellow-500 font-semibold  capitalize">
+            <span className="px-1  cursor-pointer text-gray-300  font-semibold  capitalize">
               {el?.name} :
             </span>
-            <span className="px-1  cursor-pointer text-gray-400  font-semibold  capitalize">
+            <span className="px-1  cursor-pointer text-gray-500  font-semibold  capitalize flex gap-1">
               {el?.data}
             </span>
           </div>

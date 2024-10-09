@@ -3,7 +3,9 @@ import MovieDetailsRight from "./MovieDetailsRight";
 import { Link } from "react-router-dom";
 import { FaChevronRight } from "react-icons/fa";
 import { LuChevronsRight } from "react-icons/lu";
-import { MdTopic } from "react-icons/md";
+// import { MdSubtitles } from "react-icons/md";
+import { MdSubtitles } from "react-icons/md";
+import { MdDoubleArrow } from "react-icons/md";
 
 export default function MovieDetailsCenter({
   centerDetails,
@@ -24,10 +26,9 @@ export default function MovieDetailsCenter({
         </div>
         <div>
           <div className="flex items-center gap-1 mb-2">
-            <MdTopic className="text-yellow-500" size={25} />
+            <MdDoubleArrow className="text-yellow-600" size={35} />
             <span className="text-gray-200 text-[18px] font-semibold">
-              {" "}
-              Overview{" "}
+              Overview
             </span>
           </div>
           <p className="text-gray-400 text-[16px] leading-6 bg-gray-800/70 rounded-md p-3">
@@ -36,7 +37,7 @@ export default function MovieDetailsCenter({
         </div>
         <div>
           <div className="flex items-center gap-1 mb-2">
-            <MdTopic className="text-yellow-500" size={25} />
+            <MdDoubleArrow className="text-yellow-600" size={35} />
             <span className="text-gray-200 font-semibold text-[18px] me-2">
               Genres
             </span>
@@ -55,7 +56,7 @@ export default function MovieDetailsCenter({
 
         <div>
           <div className="flex items-center gap-1 mb-2">
-            <MdTopic className="text-yellow-500" size={25} />
+            <MdDoubleArrow className="text-yellow-600" size={35} />
             <span className="text-gray-200 font-semibold text-[18px] me-2">
               Production companies
             </span>
@@ -77,8 +78,8 @@ export default function MovieDetailsCenter({
         </div>
 
         <div>
-          <div className="flex items-center gap-1 mb-2">
-            <MdTopic className="text-yellow-500" size={25} />
+          <div className="flex items-center gap-1 mb-2 ">
+            <MdDoubleArrow className="text-yellow-600" size={35} />
             <span className="text-gray-200 font-semibold text-[18px] me-2">
               Details
             </span>
