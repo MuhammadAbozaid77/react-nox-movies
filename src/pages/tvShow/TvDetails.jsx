@@ -1,11 +1,9 @@
 import { useParams } from "react-router-dom";
 import { getTvDetails } from "../../services/tvShowAPI";
 import { useQuery } from "@tanstack/react-query";
-import Wrapper from "../../components/ui/Wrapper";
 import SpinnerLoading from "../../components/ui/SpinnerLoading";
 import TvDetailsCenter from "./components/TvDetailsCenter";
 import TvDetailsLeft from "./components/TvDetailsLeft";
-import TvDetailsRight from "./components/TvDetailsRight";
 
 // gettvShowDetails
 export default function TvDetails() {
@@ -45,25 +43,13 @@ export default function TvDetails() {
   if (isLoading) return <SpinnerLoading />;
 
   return (
-    <div
-      className="relative py-[10px] min-h-[calc(100vh-80px)]"
-      style={{
-        backgroundImage: `url(${imagePath})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
-      {/* Background overlay for opacity */}
-      <div className="absolute inset-0 bg-black opacity-90"></div>
-
-      {/* Content above the overlay */}
-      <Wrapper>
-        <div className="relative text-white gap-2 grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1">
-          <TvDetailsLeft pic={tvShowDetails?.poster_path} />
-          <TvDetailsCenter centerDetails={centerDetails} />
-          <TvDetailsRight iconsData={iconsData} />
-        </div>
-      </Wrapper>
+    <div className="relative text-white gap-8 grid lg:grid-cols-6 md:grid-cols-3 grid-cols-1 mt-4">
+      <TvDetailsLeft pic={imagePath} />
+      <TvDetailsCenter
+        centerDetails={centerDetails}
+        iconsData={iconsData}
+        tvId={tvShowDetails?.id}
+      />
     </div>
   );
 }

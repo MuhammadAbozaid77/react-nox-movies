@@ -15,7 +15,7 @@ export default function MovieDetailsCenter({
   const { title, overview, genres, companies, tagline } = centerDetails;
   return (
     <>
-      <div className=" md:col-span-4 col-span-1 flex flex-col gap-8 px-5">
+      <div className="flex flex-col gap-2 px-5 lg:w-2/3 w-3/3">
         <div className=" rounded-b-[10px]">
           <h2 className="text-[35px] text-white font-semibold">{title}</h2>
           <div className="flex justify-start gap-2 items-center">
@@ -27,25 +27,25 @@ export default function MovieDetailsCenter({
         <div>
           <div className="flex items-center gap-1 mb-2">
             <MdDoubleArrow className="text-yellow-600" size={35} />
-            <span className="text-gray-200 text-[18px] font-semibold">
+            <span className="text-gray-200 text-[16px] font-semibold">
               Overview
             </span>
           </div>
-          <p className="text-gray-400 text-[16px] leading-6 bg-gray-800/70 rounded-md p-3">
+          <p className="text-gray-400 text-[12px] leading-4 bg-gray-800/70 rounded-md p-3">
             {overview}
           </p>
         </div>
         <div>
           <div className="flex items-center gap-1 mb-2">
             <MdDoubleArrow className="text-yellow-600" size={35} />
-            <span className="text-gray-200 font-semibold text-[18px] me-2">
+            <span className="text-gray-200 font-semibold text-[16px] me-2">
               Genres
             </span>
             <div className="flex justify-start items-center flex-wrap gap-2">
               {genres?.map((el) => (
                 <span
                   key={el?.id}
-                  className="p-1 bg-gray-800/70  text-gray-400 font-semibold min-w-[80px] rounded-md text-center text-[14px]"
+                  className="p-1 bg-gray-800/70  text-gray-400 font-semibold min-w-[80px] rounded-md text-center text-[12px]"
                 >
                   {el?.name}
                 </span>
@@ -57,7 +57,7 @@ export default function MovieDetailsCenter({
         <div>
           <div className="flex items-center gap-1 mb-2">
             <MdDoubleArrow className="text-yellow-600" size={35} />
-            <span className="text-gray-200 font-semibold text-[18px] me-2">
+            <span className="text-gray-200 font-semibold text-[16px] me-2">
               Production companies
             </span>
           </div>
@@ -80,7 +80,7 @@ export default function MovieDetailsCenter({
         <div>
           <div className="flex items-center gap-1 mb-2 ">
             <MdDoubleArrow className="text-yellow-600" size={35} />
-            <span className="text-gray-200 font-semibold text-[18px] me-2">
+            <span className="text-gray-200 font-semibold text-[16px] me-2">
               Details
             </span>
           </div>

@@ -1,76 +1,72 @@
 import { FaLanguage } from "react-icons/fa6";
 import { FaGrinStars, FaStar } from "react-icons/fa";
-import { BiLogoInternetExplorer, BiSolidTimeFive } from "react-icons/bi";
+import { BiSolidTimeFive } from "react-icons/bi";
 import { BsFillCalendarDateFill } from "react-icons/bs";
 import { IoIosPeople } from "react-icons/io";
 
 export default function TvDetailsRight({ iconsData }) {
+  console.log("iconsData", iconsData);
+
   const { language, rating, vote, status, release, time, link } = iconsData;
+  console.log("iconsData", iconsData);
 
-  const iconsRight = [
-    {
-      icon: <FaLanguage />,
-      name: "language",
-      data: language?.[0]?.name,
-    },
-    {
-      icon: <BsFillCalendarDateFill />,
-      name: "release date",
-      data: release,
-    },
-    {
-      icon: <BiSolidTimeFive />,
-      name: "time",
-      data: time,
-    },
-    {
-      icon: <FaStar />,
-      name: "rating",
-      data: rating,
-    },
-    {
-      icon: <IoIosPeople />,
-      name: "vote",
-      data: vote,
-    },
-    {
-      icon: <BiLogoInternetExplorer />,
-      name: "website",
-      data: "",
-    },
-    {
-      icon: <FaGrinStars />,
-      name: "status",
-      data: status,
-    },
-  ];
+  // const hours = Math.floor(time / 60); // Get the whole hours
+  // const remainingtime = time % 60;
 
-  return (
-    <>
-      <div className="p-2 lg:col-span-1 md:col-span-3 col-span-1 rounded-xl flex flex-col justify-between gap-1">
-        {iconsRight?.map((el, index) => (
-          <div
-            className="flex justify-start items-center py-2 bg-[#303030] border border-gray-500 rounded-md"
-            key={index}
-          >
-            <span className=" text-yellow-500  w-[30px] h-[30px] text-[20px] border-gray-500  flex justify-center items-center">
-              {el?.icon}
-            </span>
-            <span className="px-1  cursor-pointer text-yellow-500  capitalize">
-              {el?.name} :
-            </span>
-            <span className="px-1  cursor-pointer text-gray-300 font-semibold  capitalize">
-              {el?.data}
-            </span>
-          </div>
-        ))}
-      </div>
-    </>
-  );
-}
-{
-  /* <Link className='flex items-center' target='_blank' to={movieDetails.homepage}> 
-                          <span className='mx-1'> Here </span>
-                          <span>  <BsFillArrowUpRightCircleFill size={20}/> </span>
-                          </Link>  */
+  // const iconsRight = [
+  //   {
+  //     icon: <FaLanguage />,
+  //     name: "language",
+  //     // data: language?.map((el) => (
+  //     //   <span className="border border-gray-600 rounded-md p-1">
+  //     //     {el?.english_name}
+  //     //   </span>
+  //     // )),
+  //   },
+  //   {
+  //     icon: <BsFillCalendarDateFill />,
+  //     name: "release date",
+  //     data: release,
+  //   },
+  //   {
+  //     icon: <BiSolidTimeFive />,
+  //     name: "time",
+  //     data: `${hours} hours  and ${remainingtime} minutes`,
+  //   },
+  //   {
+  //     icon: <FaStar />,
+  //     name: "rating",
+  //     data: rating,
+  //   },
+  //   {
+  //     icon: <IoIosPeople />,
+  //     name: "vote",
+  //     data: vote,
+  //   },
+  //   {
+  //     icon: <FaGrinStars />,
+  //     name: "status",
+  //     data: status,
+  //   },
+  // ];
+
+  // return (
+  //   <>
+  //     <div className="grid grid-cols-1 rounded-xl gap-1 border px-2 py-5 border-gray-700">
+  //       {iconsRight?.map((el, index) => (
+  //         <div className="flex justify-start items-center" key={index}>
+  //           <span className="px-1 text-[20px] cursor-pointer text-yellow-600 font-semibold  capitalize">
+  //             {el?.icon}
+  //           </span>
+  //           <span className="px-1  cursor-pointer text-gray-300  font-semibold  capitalize">
+  //             {el?.name} :
+  //           </span>
+  //           <span className="px-1  cursor-pointer text-gray-500  font-semibold  capitalize flex gap-1">
+  //             {el?.data}
+  //           </span>
+  //         </div>
+  //       ))}
+  //     </div>
+  //   </>
+  // );
 }

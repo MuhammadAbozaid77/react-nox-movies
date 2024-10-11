@@ -10,6 +10,8 @@ import TvShow from "../pages/tvShow/TvShow";
 import TvDetails from "../pages/tvShow/TvDetails";
 import MovieVideos from "../pages/movies/MovieVideos";
 import MovieDetailsLayout from "../pages/movies/MovieDetailsLayout";
+import TVDetailsLayout from "../pages/tvShow/TVDetailsLayout";
+import TvVideos from "../pages/tvShow/TvVideos";
 // import TvDetails from "../pages/tvShow/TvDetails";
 
 export default function Navigations() {
@@ -19,14 +21,13 @@ export default function Navigations() {
       <Route element={<AppLayout />}>
         <Route index element={<Navigate replace to="/home" />} />
         <Route path="/home" element={<Home />} />
-
+        {/* ------------------- Movies -------------------------- */}
         <Route path="movies" element={<Movies />} />
         <Route path="" element={<MovieDetailsLayout />}>
           <Route
             index
             element={<Navigate replace to="/movieDetails/:movieId" />}
           />
-
           <Route
             index
             path="movieDetails/:movieId"
@@ -34,9 +35,13 @@ export default function Navigations() {
           />
           <Route path="movieVideos/:movieId" element={<MovieVideos />} />
         </Route>
-
+        {/* ------------------- TV -------------------------- */}
         <Route path="tvShow" element={<TvShow />} />
-        <Route path="tvDetails/:tvId" element={<TvDetails />} />
+        <Route path="" element={<TVDetailsLayout />}>
+          <Route index element={<Navigate replace to="/tvDetails/:tvId" />} />
+          <Route path="tvDetails/:tvId" element={<TvDetails />} />
+          <Route path="tvVideos/:tvId" element={<TvVideos />} />
+        </Route>
       </Route>
       <Route />
     </Routes>

@@ -54,13 +54,13 @@ export default function MovieDetailsRight({ iconsData }) {
       <div className="grid grid-cols-1 rounded-xl gap-1 border px-2 py-5 border-gray-700">
         {iconsRight?.map((el, index) => (
           <div className="flex justify-start items-center" key={index}>
-            <span className="px-1 text-[20px] cursor-pointer text-yellow-600 font-semibold  capitalize">
+            <span className="px-1 text-[18px] cursor-pointer text-yellow-600 font-semibold  capitalize">
               {el?.icon}
             </span>
-            <span className="px-1  cursor-pointer text-gray-300  font-semibold  capitalize">
+            <span className="px-1 text-[12px]  cursor-pointer text-gray-300  font-semibold  capitalize">
               {el?.name} :
             </span>
-            <span className="px-1  cursor-pointer text-gray-500  font-semibold  capitalize flex gap-1">
+            <span className="px-1 text-[12px]  cursor-pointer text-gray-500  font-semibold  capitalize flex gap-1">
               {el?.data}
             </span>
           </div>
