@@ -29,7 +29,7 @@ export default function MovieCards({ item }) {
             <span>
               <FaStar size={20} />
             </span>
-            <span>{item?.vote_average}</span>
+            <span>{item?.vote_average?.toFixed(1)}</span>
           </div>
 
           {/* Rotating Icon in Center */}

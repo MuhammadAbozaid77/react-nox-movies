@@ -22,7 +22,7 @@ export default function MovieDetails() {
 
   const iconsData = {
     language: movieDetails?.spoken_languages,
-    rating: movieDetails?.vote_average,
+    rating: movieDetails?.vote_average?.toFixed(1),
     vote: movieDetails?.vote_count,
     status: movieDetails?.status,
     release: movieDetails?.release_date,
@@ -32,7 +32,7 @@ export default function MovieDetails() {
 
   return (
     <>
-      <div className="relative text-white gap-8 grid lg:grid-cols-6 md:grid-cols-3 grid-cols-1 mt-4">
+      <div className=" relative text-white gap-2 mt-4 flex justify-center items-start lg:flex-row flex-col">
         <MovieDetailsLeft pic={movieDetails?.poster_path} />
         <MovieDetailsCenter
           centerDetails={centerDetails}
