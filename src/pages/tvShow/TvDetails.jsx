@@ -21,6 +21,8 @@ export default function TvDetails() {
     enabled: !!tvId,
   });
 
+  console.log("tvShowDetails", tvShowDetails);
+
   const imagePath = `https://image.tmdb.org/t/p/original${tvShowDetails?.poster_path}`;
   const centerDetails = {
     title: tvShowDetails?.original_name,
@@ -38,8 +40,6 @@ export default function TvDetails() {
     time: tvShowDetails?.runtime,
     link: tvShowDetails?.homepage,
   };
-  console.log("tvShowDetails", tvShowDetails);
-
   if (isLoading) return <SpinnerLoading />;
 
   return (
@@ -49,6 +49,7 @@ export default function TvDetails() {
         centerDetails={centerDetails}
         iconsData={iconsData}
         tvId={tvShowDetails?.id}
+        seasons={tvShowDetails?.seasons}
       />
     </div>
   );

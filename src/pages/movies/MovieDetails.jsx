@@ -2,6 +2,7 @@ import MovieDetailsLeft from "./components/MovieDetailsLeft";
 import MovieDetailsCenter from "./components/MovieDetailsCenter";
 import { useParams } from "react-router-dom";
 import { useQueryClient } from "@tanstack/react-query";
+import SimillarMovies from "./components/SimillarMovies";
 
 // getMovieDetails
 export default function MovieDetails() {
@@ -10,7 +11,7 @@ export default function MovieDetails() {
   const queryClient = useQueryClient();
   const movieDetails = queryClient.getQueryData(["movieDetails", movieId]);
 
-  console.log("movieDetails", movieDetails);
+  // console.log("movieDetails", movieDetails);
 
   const centerDetails = {
     title: movieDetails?.original_title,
@@ -30,6 +31,8 @@ export default function MovieDetails() {
     link: movieDetails?.homepage,
   };
 
+  console.log(movieDetails);
+
   return (
     <>
       <div className=" relative text-white gap-2 mt-4 flex justify-center items-start lg:flex-row flex-col">
@@ -40,6 +43,7 @@ export default function MovieDetails() {
           movieId={movieDetails?.id}
         />
       </div>
+      <SimillarMovies />
     </>
   );
 }
