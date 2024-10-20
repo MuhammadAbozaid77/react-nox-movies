@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { FaStar, FaGooglePlay } from "react-icons/fa";
 
 export default function TvCards({ item }) {
-  console.log("item", item);
+  // console.log("item", item);
 
   return (
     <Link to={`/tvDetails/${item?.id}`} className="cursor-pointer">

@@ -12,6 +12,7 @@ import MovieVideos from "../pages/movies/MovieVideos";
 import MovieDetailsLayout from "../pages/movies/MovieDetailsLayout";
 import TVDetailsLayout from "../pages/tvShow/TVDetailsLayout";
 import TvVideos from "../pages/tvShow/TvVideos";
+import SeasonDetails from "../pages/tvShow/SeasonDetails";
 // import TvDetails from "../pages/tvShow/TvDetails";
 
 export default function Navigations() {
@@ -41,6 +42,10 @@ export default function Navigations() {
           <Route index element={<Navigate replace to="/tvDetails/:tvId" />} />
           <Route path="tvDetails/:tvId" element={<TvDetails />} />
           <Route path="tvVideos/:tvId" element={<TvVideos />} />
+          <Route
+            path="seasonDetails/:tvId/:seasonNumber"
+            element={<SeasonDetails />}
+          />
         </Route>
       </Route>
       <Route />

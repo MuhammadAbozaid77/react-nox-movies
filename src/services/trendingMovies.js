@@ -44,3 +44,13 @@ export async function getTrendingPeople() {
     throw new Error("Can't Get Popular Movies");
   }
 }
+export async function getSimilarMovies(movieId) {
+  const url = `https://api.themoviedb.org/3/movie/${movieId}/similar?language=en-US&page=1`;
+  try {
+    const res = await fetch(url, options);
+    const data = await res?.json();
+    return data?.results;
+  } catch (error) {
+    throw new Error("Can't Get Popular Movies");
+  }
+}

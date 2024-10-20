@@ -1,9 +1,16 @@
 import { TbPlayerPlayFilled } from "react-icons/tb";
 import { Link } from "react-router-dom";
 import { MdDoubleArrow } from "react-icons/md";
-import TvDetailsRight from "./TvDetailsRight";
+import TvDetailsRight from "./TVSeasons";
+import defaultPic from "./../../../assets/compantLogo2.jpg";
+import TVSeasons from "./TVSeasons";
 
-export default function TvDetailsCenter({ centerDetails, iconsData, movieId }) {
+export default function TvDetailsCenter({
+  centerDetails,
+  iconsData,
+  movieId,
+  seasons,
+}) {
   const { title, overview, genres, companies, tagline } = centerDetails;
   return (
     <>
@@ -53,14 +60,18 @@ export default function TvDetailsCenter({ centerDetails, iconsData, movieId }) {
               Production companies
             </span>
           </div>
-          <div className="flex justify-start items-center gap-2">
+          <div className="flex justify-start items-center gap-2 flex-wrap">
             {companies?.map((el) => (
               <div
-                className="w-[60px] h-[60px] bg-white relative overflow-hidden p-2 rounded flex-wrap"
+                className="w-[100px] h-[100px] bg-white relative overflow-hidden p-2 rounded flex-wrap"
                 key={el?.id}
               >
                 <img
-                  src={`https://image.tmdb.org/t/p/original${el?.logo_path}`}
+                  src={
+                    el?.logo_path
+                      ? `https://image.tmdb.org/t/p/original${el?.logo_path}`
+                      : defaultPic
+                  }
                   alt=""
                   className="w-full h-full object-contain"
                 />
@@ -73,11 +84,11 @@ export default function TvDetailsCenter({ centerDetails, iconsData, movieId }) {
           <div className="flex items-center gap-1 mb-2 ">
             <MdDoubleArrow className="text-yellow-600" size={35} />
             <span className="text-gray-200 font-semibold text-[18px] me-2">
-              Details
+              Seasons
             </span>
           </div>
 
-          <TvDetailsRight iconsData={iconsData} />
+          <TVSeasons seasons={seasons} />
         </div>
 
         <Link to={`/movieVideos/${movieId}`} className="mt-4">

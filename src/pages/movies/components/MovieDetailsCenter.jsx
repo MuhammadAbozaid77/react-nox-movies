@@ -1,10 +1,7 @@
+import defaultPic from "./../../../assets/compantLogo2.jpg";
 import { TbPlayerPlayFilled } from "react-icons/tb";
 import MovieDetailsRight from "./MovieDetailsRight";
 import { Link } from "react-router-dom";
-import { FaChevronRight } from "react-icons/fa";
-import { LuChevronsRight } from "react-icons/lu";
-// import { MdSubtitles } from "react-icons/md";
-import { MdSubtitles } from "react-icons/md";
 import { MdDoubleArrow } from "react-icons/md";
 
 export default function MovieDetailsCenter({
@@ -12,7 +9,8 @@ export default function MovieDetailsCenter({
   iconsData,
   movieId,
 }) {
-  const { title, overview, genres, companies, tagline } = centerDetails;
+  const { title, overview, genres, companies, tagline  } = centerDetails;
+
   return (
     <>
       <div className="flex flex-col gap-2 px-5 lg:w-2/3 w-3/3">
@@ -61,14 +59,18 @@ export default function MovieDetailsCenter({
               Production companies
             </span>
           </div>
-          <div className="flex justify-start items-center gap-2">
+          <div className="flex justify-start items-center gap-2 flex-wrap">
             {companies?.map((el) => (
               <div
-                className="w-[60px] h-[60px] bg-white relative overflow-hidden p-2 rounded flex-wrap"
+                className="w-[100px] h-[100px] bg-white relative overflow-hidden p-2 rounded flex-wrap"
                 key={el?.id}
               >
                 <img
-                  src={`https://image.tmdb.org/t/p/original${el?.logo_path}`}
+                  src={
+                    el?.logo_path
+                      ? `https://image.tmdb.org/t/p/original${el?.logo_path}`
+                      : defaultPic
+                  }
                   alt=""
                   className="w-full h-full object-contain"
                 />

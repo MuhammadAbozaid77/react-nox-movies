@@ -6,7 +6,7 @@ import { IoIosPeople } from "react-icons/io";
 
 export default function MovieDetailsRight({ iconsData }) {
   const { language, rating, vote, status, release, time } = iconsData;
-  console.log("iconsData", iconsData);
+  // console.log("iconsData", iconsData);
 
   const hours = Math.floor(time / 60); // Get the whole hours
   const remainingtime = time % 60;
@@ -17,7 +17,6 @@ export default function MovieDetailsRight({ iconsData }) {
       name: "language",
       data: language?.map((el) => (
         <span className="border border-gray-600 rounded-md p-1">
-          {" "}
           {el?.english_name}
         </span>
       )),
